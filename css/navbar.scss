@@ -22,10 +22,14 @@ $color : #161823;
     vertical-align: middle;
 
 
-    li{
-      display: inline;
-      margin-left: 5%;
-      margin-right: 5%;
+    .element{
+      float: left;
+      width: 20%;
+      text-align: center;
+
+      li{
+        list-style-type: none;
+      }
     }
   }
 
