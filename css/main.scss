@@ -1,0 +1,36 @@
+$bgcolor : #161823;
+body{
+  background-color: $bgcolor;
+}
+
+.image {
+  background-image: url("/images/man.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 300px;
+  position:relative;
+
+}
+
+.parent {
+  -webkit-transform: skewY(5deg);
+  -moz-transform: skewY(5deg);
+  -ms-transform: skewY(5deg);
+  -o-transform: skewY(5deg);
+  transform: skewY(5deg);
+  background: linear-gradient(to right, #ff2366, #8d4de8);
+  opacity: 0.5;
+  height: 200px;
+  position: absolute;
+  bottom:-50px;
+  width:100%;
+}
+
+.parent > .child {
+  -webkit-transform: skewY(-5deg);
+  -moz-transform: skewY(-5deg);
+  -ms-transform: skewY(-5deg);
+  -o-transform: skewY(-5deg);
+  transform: skewY(-5deg);
+
+}
