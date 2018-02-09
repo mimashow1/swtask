@@ -40,13 +40,23 @@
 </div>
 <div class="visible-xs">
     <div class="downMenu">
-        <ul class="menu">
-            <li><a href="#"><i class="fas fa-user" id="icon"></i></a></li>
-            <li><a href="#"><i class="fas fa-newspaper" id="icon"></i></a></li>
-            <li><a href="#"><i class="fas fa-bell" id="icon"></i></a></li>
-            <li><a href="#"><i class="fas fa-bookmark" id="icon"></i></a></li>
-            <li><a href="#"><i class="fas fa-home" id="icon"></i></a></li>
-        </ul>
+        <div class="menu">
+            <div class="element">
+                <li><a href="#"><i class="fas fa-user" id="icon"></i></a></li>
+            </div>
+            <div class="element">
+                <li><a href="#"><i class="fas fa-newspaper" id="icon"></i></a></li>
+            </div>
+            <div class="element">
+                <li><a href="#"><i class="fas fa-bell" id="icon"></i></a></li>
+            </div>
+            <div class="element">
+                <li><a href="#"><i class="fas fa-bookmark" id="icon"></i></a></li>
+            </div>
+            <div class="element">
+                <li><a href="#"><i class="fas fa-home" id="icon"></i></a></li>
+            </div>
+        </div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
