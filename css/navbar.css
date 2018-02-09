@@ -15,10 +15,12 @@
     font-size: 1.5em; }
   .downMenu .menu {
     margin: 0;
-    vertical-align: middle; }
-    .downMenu .menu li {
-      display: inline;
-      margin-left: 5%;
-      margin-right: 5%; }
+    margin-top: 5px; }
+    .downMenu .menu .element {
+      float: left;
+      width: 20%;
+      text-align: center; }
+      .downMenu .menu .element li {
+        list-style-type: none; }
 
 /*# sourceMappingURL=navbar.css.map */

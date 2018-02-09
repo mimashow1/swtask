@@ -24,11 +24,11 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#"><i class="fas fa-home"></i> Home</a></li>
                     <li><a href="#"><i class="fas fa-user"></i> Account</a></li>
+                    <li><a href="#"><i class="fas fa-newspaper"></i> News</a></li>
                     <li><a href="#"><i class="fas fa-bell"></i> Notifications</a></li>
                     <li><a href="#"><i class="fas fa-bookmark"></i> Saved</a></li>
-                    <li><a href="#"><i class="fas fa-newspaper"></i> News</a></li>
+                    <li class="active"><a href="#"><i class="fas fa-home"></i> Home</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
