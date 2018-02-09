@@ -46,7 +46,7 @@
             <li><a href="#"><i class="fas fa-bell" id="icon"></i></a></li>
             <li><a href="#"><i class="fas fa-bookmark" id="icon"></i></a></li>
             <li><a href="#"><i class="fas fa-home" id="icon"></i></a></li>
-        </ul>
+        </ul>d
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
