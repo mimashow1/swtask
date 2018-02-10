@@ -4,7 +4,7 @@ body{
 }
 
 .image {
-  background-image: url("/images/man.png");
+
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 300px;
@@ -18,8 +18,8 @@ body{
   -ms-transform: skewY(5deg);
   -o-transform: skewY(5deg);
   transform: skewY(5deg);
-  background: linear-gradient(to right, #ff2366, #8d4de8);
-  opacity: 0.5;
+  background: linear-gradient(to right, rgba(255,35,102,0.5), rgba(141,77,232,0.5));
+
   height: 200px;
   position: absolute;
   bottom:-50px;
@@ -32,5 +32,18 @@ body{
   -ms-transform: skewY(-5deg);
   -o-transform: skewY(-5deg);
   transform: skewY(-5deg);
+
+}
+
+.post {
+  h1, p{
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    color : white;
+  }
+  hr{
+    width: 90%;
+  }
 
 }
