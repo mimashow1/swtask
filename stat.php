@@ -16,61 +16,101 @@
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+        if ( !Storage.prototype.setObject ) {
+            Storage.prototype.setObject = function(key, value) {
+                this.setItem(key, JSON.stringify(value));
+            }
+        }
+
+        if ( !Storage.prototype.getObject ) {
+            Storage.prototype.getObject = function(key) {
+                var value = this.getItem(key);
+                return value && JSON.parse(value);
+            }
+        }
+
         window.onload = function () {
-            localStorage.setItem("Likes", 1);
-            localStorage.setItem("LikesMe", 3);
-            localStorage.setItem("Guests", 2);
 
-            var sum = parseInt(localStorage.getItem('Likes')) + parseInt(localStorage.getItem('LikesMe')) + parseInt(localStorage.getItem('Guests'));
-            var chart = new CanvasJS.Chart("chartContainer", {
-                animationEnabled: true,
-                backgroundColor: "#161823",
-                title:{
-                    text: "Total " + sum,
-                    horizontalAlign: "center",
-                    verticalAlign: "center",
-                    fontColor: "white"
-                },
-                data: [{
-                    type: "doughnut",
-                    startAngle: 60,
-                    //innerRadius: 60,
-                    indexLabelFontColor: "white",
-                    indexLabelFontSize: 17,
+            var array = [];
+            var testObj = new Object();
+            testObj.likes = 5;
+            testObj.likesMe = 20;
+            testObj.guests = 15;
+            testObj.month = "January";
+            testObj.userID = 2;
+            array.push(testObj);
 
-                    dataPoints: [
-                        { y: localStorage.getItem('Likes'), label: "My likes" },
-                        { y: localStorage.getItem('LikesMe'), label: "Likes" },
-                        { y: localStorage.getItem('Guests'), label: "Guests" }
+            var testObj2 = new Object();
+            testObj2.likes = 8;
+            testObj2.likesMe = 1;
+            testObj2.guests = 39;
+            testObj2.month = "February";
+            testObj2.userID = 2;
+            array.push(testObj2);
+            localStorage.setObject('dan16laz',array);
 
-                    ]
-                }]
-            });
-            chart.render();
+        }
+
+
+
+        function dodajAktywne(elem) {
+            var card = document.getElementsByClassName('card');
+            for (i = 0; i < card.length; i++) {
+                card[i].classList.remove('selected');
+
+            }
+            var cookieValue = elem.getAttribute("data-value");
+            elem.classList.add('selected');
+
+            console.log(cookieValue);
+
+                var alldata = localStorage.getObject("dan16laz");
+                for (i = 0; i < alldata.length; i++){
+                    if (alldata[i].month === cookieValue){
+                        var temp = alldata[i];
+                    }
+                }
+
+
+
+                var sum = parseInt(temp.likes) + parseInt(temp.likesMe) + parseInt(temp.guests);
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    animationEnabled: true,
+                    backgroundColor: "#161823",
+                    title: {
+                        text: "Total " + sum,
+                        horizontalAlign: "center",
+                        verticalAlign: "center",
+                        fontColor: "white"
+                    },
+                    data: [{
+                        type: "doughnut",
+                        startAngle: 0,
+                        //innerRadius: 60,
+                        indexLabelFontColor: "white",
+                        indexLabelFontSize: 17,
+
+                        dataPoints: [
+                            {y: temp.likes, label: "My likes"},
+                            {y: temp.likesMe, label: "Likes"},
+                            {y: temp.guests, label: "Guests"}
+
+                        ]
+                    }]
+                });
+                chart.render();
 
         }
     </script>
 </head>
 <body>
 <?php include 'navbar.php'; ?>
-<script>
-    function dodajAktywne(elem) {
-        // get all 'a' elements
-        var card = document.getElementsByClassName('card');
-        // loop through all 'a' elements
-        for (i = 0; i < card.length; i++) {
-            // Remove the class 'active' if it exists
-            card[i].classList.remove('selected')
-        }
-        // add 'active' classs to the element that was clicked
-        elem.classList.add('selected');
-    }
-</script>
+
 <h1 style="color: white; text-align: center; font-size: 15pt;">Statistic <i class="fas fa-star"></i></h1>
 
 <div class="scrolling-wrapper">
-    <div class="card selected" onclick="dodajAktywne(this)"><h2>January</h2></div>
-    <div class="card" onclick="dodajAktywne(this)"><h2>February</h2></div>
+    <div class="card" onclick="dodajAktywne(this)" data-value="January"><h2>January</h2></div>
+    <div class="card" onclick="dodajAktywne(this)" data-value="February"><h2>February</h2></div>
     <div class="card" onclick="dodajAktywne(this)"><h2>March</h2></div>
     <div class="card" onclick="dodajAktywne(this)"><h2>April</h2></div>
     <div class="card" onclick="dodajAktywne(this)"><h2>May</h2></div>
