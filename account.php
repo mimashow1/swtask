@@ -27,6 +27,39 @@ function Login($con){
         }
     }
 }
+
+function UserPosts($con){
+    $user = "user_" .$_COOKIE["ID"];
+
+    $query = "SELECT * FROM ".$user;
+
+    $result = mysqli_query($con, $query);
+    $row = mysqli_fetch_assoc($result);
+
+    if (empty($row)){
+        echo '<h2 style="color: white; font-size: 15pt; text-align: center;">You dont have posts yet</h2>';
+    } else {
+        echo '<h2 style="color: white; font-size: 13pt; text-align: center;">All your posts</h2>';
+        echo '<div style="margin-bottom: 80px;>"';
+
+        $num = 0;
+        for ($i = 0; $i <= mysqli_num_rows($result); $i++){
+            $query2 = "SELECT * FROM ".$user." WHERE ID = ".$num;
+
+            $records = mysqli_query($con, $query2);
+            $row2 = mysqli_fetch_assoc($records);
+            echo '<img src="';
+            echo $row2['image'];
+            echo '" style="max-width: 80%; margin-left: 10%;">';
+            echo '<h2 style="color:white; text-align: center; margin-top: 10px; margin-bottom: 20px;">';
+            echo $row2['smallText'];
+            echo '</h2>';
+            $num++;
+        }
+        echo '</div>';
+    }
+}
+
 ?>
 
 <!doctype html>
@@ -64,7 +97,14 @@ function Login($con){
                 </div>
             </div>';}
      else {
+        echo '
+            <h1 style="color: white; text-align: center; font-size: 15pt;">Account <i class="fas fa-user" style="color: white;"></i></h1>
+            <div class="center">
+                <a class="button" style="border: 1px solid white; color: white;"> Add new post</a>
+            </div>
+        ';
 
+        UserPosts($conn);
      }
 
 ?>
