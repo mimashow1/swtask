@@ -22,7 +22,7 @@
                     <h1>Who are you and why're you standing here?</h1>
                     <p>It doesn't metter if you're building the next
                     Facebook, or if you're the director of marketing for
-                    an industrial company...</p>
+                    an industrial company.</p>
                     <hr>
                 </div>
             </div>
